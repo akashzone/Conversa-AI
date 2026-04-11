@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-
+import chatRoutes from "./routes/chat.js";
 
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
@@ -18,6 +18,7 @@ const connectDB = async () => {
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/", chatRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  connectDB();
 });
 
 // app.post("/api/generate", async (req, res) => {
