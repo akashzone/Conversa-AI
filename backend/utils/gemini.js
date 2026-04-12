@@ -27,10 +27,10 @@ const geminiAPIResponse = async (message) => {
       options,
     );
     const data = await response.json();
-    res.json(data.candidates[0].content.parts[0].text); //reply
+    return data.candidates[0].content.parts[0].text; //reply
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: error.message });
+    throw new Error("Failed to get Gemini API response");
   }
 };
 
