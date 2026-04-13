@@ -1,0 +1,86 @@
+
+
+.mainChatWindow {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #212121;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: #2a2a2b 0px 2px 0px 0px;
+}
+
+.navbar span{
+    font-size: 14px;
+    color: #e0dede;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.userProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgb(65, 116, 227);
+}
+
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.inputBox {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    background-color: #303030;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.inputBox input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    color: #7e7e7e;
+    outline: none;
+}
+
+.inputBox .sendBtn {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 20px;
+    color: #8f8f8f;;
+}
+
+.footer a{
+    color: #fff
+}
+
+.navbar span:hover{
+    cursor: pointer;
+    background-color: #27292c;
+}
