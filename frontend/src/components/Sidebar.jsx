@@ -8,6 +8,7 @@ const Sidebar = () => {
                 <img src={logo} alt="logo" className="logo" />
                 <i class="fa-solid fa-file-pen newChatIcon"></i>
             </button>
+            <span className="recentSpan">Recents<i class="fa-solid fa-angle-down"></i></span>
             <ul className="historyList">
                 <li>Getting Started with React<i class="fa-solid fa-ellipsis editIcon"></i></li>
                 <li>Understanding JavaScript Closures<i class="fa-solid fa-ellipsis editIcon"></i></li>

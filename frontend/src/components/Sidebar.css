@@ -40,10 +40,24 @@
     color: #8f8f8f;
 }
 
+.recentSpan{
+    font-size: 14px;
+    width: 90%;
+    padding: 10px 30px;
+    color: #8f8f8f;
+    align-self: flex-start;
+}
+
+.recentSpan i{
+    font-size: 12px;
+    margin-left: 5px;
+}
+
 .historyList{
     height: 100%;
     width: 90%;
-    padding: 10px 20px;
+    margin: 0;
+    padding: 5px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -73,6 +87,10 @@
     width: 100%;
     cursor: pointer;
     border-top: solid 0.25px rgba(255, 255, 255, 0.5);
+}
+
+.heartIcon{
+    color: red;
 }
 
 .newChatIcon:hover{
