@@ -8,7 +8,7 @@ const geminiAPIResponse = async (message) => {
     },
     method: "POST",
     body: JSON.stringify({
-      model: "gemini-3-flash",
+      model: "gemini-flash-latest",
       contents: [
         {
           role: "user",
@@ -23,7 +23,7 @@ const geminiAPIResponse = async (message) => {
   };
   try {
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent",
       options,
     );
     const data = await response.json();
