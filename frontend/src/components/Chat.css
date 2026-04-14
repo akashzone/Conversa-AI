@@ -1,0 +1,33 @@
+.new {
+  text-align: center;
+}
+.chatBox {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chats {
+  width: 100%;
+  position: relative;
+  max-width: 700px;
+}
+
+.userDiv {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.userDiv .user {
+  background-color: #303030;
+  padding: 15px 25px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin-left: 15rem;
+  border-bottom-right-radius: 0px;
+}

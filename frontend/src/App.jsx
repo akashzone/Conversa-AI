@@ -10,10 +10,14 @@ function App() {
   const [prompt,setPrompt] = useState("");
   const [reply,setReply] = useState();
   const [threadId,setThreadId] = useState(uuid());
-  const Provider ={
+  const [newChat,setNewChat] = useState(true);
+  const [prevChat,setPrevChat] = useState([]);
+  const Provider = {
+    newChat,setNewChat,
     prompt,setPrompt,
     reply,setReply,
-    threadId,setThreadId
+    threadId,setThreadId,
+    prevChat,setPrevChat,
   }
   return (
     <div className="app">
