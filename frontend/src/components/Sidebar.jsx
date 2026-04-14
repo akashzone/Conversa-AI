@@ -6,18 +6,18 @@ const Sidebar = () => {
         <section className="sidebar">
             <button className="newChatBtn">
                 <img src={logo} alt="logo" className="logo" />
-                <i class="fa-solid fa-file-pen newChatIcon"></i>
+                <i className="fa-solid fa-file-pen newChatIcon"></i>
             </button>
-            <span className="recentSpan">Recents<i class="fa-solid fa-angle-down"></i></span>
+            <span className="recentSpan">Recents<i className="fa-solid fa-angle-down"></i></span>
             <ul className="historyList">
-                <li>Getting Started with React<i class="fa-solid fa-ellipsis editIcon"></i></li>
-                <li>Understanding JavaScript Closures<i class="fa-solid fa-ellipsis editIcon"></i></li>
-                <li>Building a Chat App UI<i class="fa-solid fa-ellipsis editIcon"></i></li>
-                <li>Deploying MERN App<i class="fa-solid fa-ellipsis editIcon"></i></li>
+                <li>Getting Started with React<i className="fa-solid fa-ellipsis editIcon"></i></li>
+                <li>Understanding JavaScript Closures<i className="fa-solid fa-ellipsis editIcon"></i></li>
+                <li>Building a Chat App UI<i className="fa-solid fa-ellipsis editIcon"></i></li>
+                <li>Deploying MERN App<i className="fa-solid fa-ellipsis editIcon"></i></li>
             </ul>
 
             <div className="sidebarFooter">
-                Made with <i class="fa-solid fa-heart heartIcon"></i> by Akash Nadar
+                Made with <i className="fa-solid fa-heart heartIcon"></i> by Akash Nadar
             </div>
         </section>
     )
