@@ -31,3 +31,17 @@
   margin-left: 15rem;
   border-bottom-right-radius: 0px;
 }
+
+.markdown pre {
+  padding: 10px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.markdown code {
+  font-size: 14px;
+}
+
+.markdown h2 {
+  margin-bottom: 8px;
+}

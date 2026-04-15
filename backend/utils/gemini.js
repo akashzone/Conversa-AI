@@ -14,7 +14,19 @@ const geminiAPIResponse = async (message) => {
           role: "user",
           parts: [
             {
-              text: message,
+              text: `
+You are an AI assistant. Format all responses strictly in markdown.
+
+Rules:
+- Use headings (##) for sections
+- Use bullet points where needed
+- For code, ALWAYS use triple backticks with language (e.g. \`\`\`js)
+- Keep responses clean and structured
+- Do NOT return plain text paragraphs
+
+User question:
+${message}
+`,
             },
           ],
         },

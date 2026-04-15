@@ -33,7 +33,7 @@ const ChatWindow = () => {
         let data = await res.json();
         console.log(data);
         setReply(data.reply);
-        
+
       } catch (err) {
         console.log(err);
       }
@@ -53,7 +53,7 @@ const ChatWindow = () => {
             message: reply
           }
           ])
-        )
+      )
     }
     setPrompt("");
   }, [reply])
@@ -69,11 +69,12 @@ const ChatWindow = () => {
       <div className="inputArea">
         <ScaleLoader loading={loading} className="loader" color="#ffffff" />
         <div className="inputBox">
-          <input type="text" value={prompt} onChange={(e) => {
+          <input type="text" value={prompt} onKeyDown={(e) => {
+            if (e.key === "Enter") handleRes();
+          }} onChange={(e) => {
             setPrompt(e.target.value)
-            // console.log(prompt)
           }} placeholder="Ask anything..." />
-          <button onClick={handleRes} onKeyDown={(e) => { if(e.key === "Enter"){handleRes();} }} className="sendBtn"><i className="fa-solid fa-paper-plane sendIcon"></i></button>
+          <button onClick={handleRes} className="sendBtn"><i className="fa-solid fa-paper-plane sendIcon"></i></button>
         </div>
         <div className="footer">
           <span>Conversa AI can make mistakes. Check important info. <a href="#">See Cookie Preferences.</a></span>
