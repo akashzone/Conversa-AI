@@ -12,12 +12,15 @@ function App() {
   const [threadId,setThreadId] = useState(uuid());
   const [newChat,setNewChat] = useState(true);
   const [prevChat,setPrevChat] = useState([]);
+  const [latestReply,setLatestReply] = useState("");
+
   const Provider = {
     newChat,setNewChat,
     prompt,setPrompt,
     reply,setReply,
     threadId,setThreadId,
     prevChat,setPrevChat,
+    latestReply,setLatestReply,
   }
   return (
     <div className="app">
