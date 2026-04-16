@@ -8,19 +8,21 @@ import {v1 as uuid} from 'uuid';
 
 function App() {
   const [prompt,setPrompt] = useState("");
-  const [reply,setReply] = useState();
-  const [threadId,setThreadId] = useState(uuid());
+  const [reply,setReply] = useState(null);
+  const [currThreadId,setCurrThreadId] = useState(uuid());
   const [newChat,setNewChat] = useState(true);
   const [prevChat,setPrevChat] = useState([]);
   const [latestReply,setLatestReply] = useState("");
+  const [allThreads,setAllThreads] = useState([]);
 
   const Provider = {
     newChat,setNewChat,
     prompt,setPrompt,
     reply,setReply,
-    threadId,setThreadId,
+    currThreadId,setCurrThreadId,
     prevChat,setPrevChat,
     latestReply,setLatestReply,
+    allThreads,setAllThreads
   }
   return (
     <div className="app">

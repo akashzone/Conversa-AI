@@ -7,7 +7,7 @@ import { ScaleLoader } from 'react-spinners'
 
 const ChatWindow = () => {
 
-  let { prompt, setPrompt, reply, setReply, threadId, prevChat, setPrevChat } = useContext(MyContext);
+  let { prompt, setPrompt, reply, setReply, currThreadId, prevChat, setPrevChat } = useContext(MyContext);
   let [loading, setLoading] = useState(false);
   const handleRes = async () => {
 
@@ -23,15 +23,15 @@ const ChatWindow = () => {
         },
         body: JSON.stringify({
           message: prompt,
-          threadId: threadId
+          threadId: currThreadId
         })
       }
 
       try {
-        console.log("content:", prompt, "threadId:", threadId)
+        console.log("content:", prompt, "threadId:", currThreadId)
         let res = await fetch("http://localhost:5000/api/chat", options);
         let data = await res.json();
-        console.log(data);
+        console.log(data.reply);
         setReply(data.reply);
 
       } catch (err) {

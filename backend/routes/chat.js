@@ -77,7 +77,7 @@ router.post("/chat", async (req, res) => {
       if (!thread) {
         thread = new Thread({
           threadId,
-          title: "New Thread",
+          title: message.substring(0, 20) + "...",
           messages: [
             {
               role: "user",
