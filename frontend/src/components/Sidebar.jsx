@@ -22,7 +22,7 @@ const Sidebar = () => {
             const response = await fetch("http://localhost:5000/api/threads");
             const data = await response.json();
             const filteredThreads = data.map(thread => ({ threadId: thread.threadId, title: thread.title }));
-            console.log("Fetched threads:", filteredThreads);
+            // console.log("Fetched threads:", filteredThreads);
 
             setAllThreads(filteredThreads);
         } catch (err) {
@@ -41,6 +41,21 @@ const Sidebar = () => {
         setLatestReply("");
         setNewChat(true);
     };
+
+    const displayChats = async (threadId) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/threads/${threadId}`);
+            const data = await response.json();
+            console.log("Fetched thread data:", data.messages);
+            setPrevChat(data.messages);
+            setCurrThreadId(threadId);
+            setNewChat(false);
+        } catch (err) {
+            console.error("Error fetching chat history:", err);
+        }
+    };
+
+
     return (
         <section className="sidebar">
             <button className="newChatBtn" onClick={ createNewChat }>
@@ -53,9 +68,10 @@ const Sidebar = () => {
 
             }
             <ul className="historyList">
-                <li>Getting Started with React<i className="fa-solid fa-ellipsis editIcon"></i></li>
                 {allThreads.map((thread) =>
-                    <li key={thread.threadId}>
+                    <li onClick={() => {
+                        displayChats(thread.threadId);
+                    }} key={thread.threadId}>
                         {thread.title}
                         <i className="fa-solid fa-ellipsis editIcon"></i>
                     </li>

@@ -16,7 +16,12 @@ const Chat = () => {
   } = useContext(MyContext);
 
   useEffect(() => {
-    if (!prevChat?.length || !reply) return;
+    if (!reply) {
+      setLatestReply("");
+      return;
+    }
+
+    if (!prevChat?.length) return;
 
     // reset before typing starts
     setLatestReply("");
@@ -34,40 +39,56 @@ const Chat = () => {
     }, 50);
 
     return () => clearInterval(interval);
-  }, [prevChat, reply, setLatestReply]);
+  }, [reply]);
 
   return (
     <div className="chatBox">
-      { prevChat?.length === 0 && <h1 className="new">Start a new Chat</h1>
-        }
+      {prevChat?.length === 0 && <h1 className="new">Start a new Chat</h1>
+      }
       <div className="chats">
         {/* Previous chats (excluding latest) */}
-        {prevChat?.slice(0, -1).map((chat, idx) => (
-          <div
-            className={chat.role === "user" ? "userDiv" : "replyDiv"}
-            key={idx}
-          >
-            {chat.role === "user" ? (
-              <p className="user">{chat.message}</p>
-            ) : (
-              <div className="markdown">
-                <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-                  {chat.message}
-                </ReactMarkdown>
-              </div>
-            )}
-          </div>
-        ))}
+        {
+          prevChat?.slice(0, -1).map((chat, idx) => (
+            <div
+              className={chat.role === "user" ? "userDiv" : "replyDiv"}
+              key={idx}
+            >
+              {chat.role === "user" ? (
+                <p className="user">{chat.content}</p>
+              ) : (
+                <div className="markdown">
+                  <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                    {chat.content}
+                  </ReactMarkdown>
+                </div>
+              )}
+            </div>
+          ))}
 
         {/* Latest AI reply (typing effect) */}
-        {prevChat?.length > 0 && latestReply !== null && (
-          <div className="replyDiv">
-            <div className="markdown">
-              <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-                {latestReply}
-              </ReactMarkdown>
-            </div>
-          </div>
+        {/* Latest AI reply */}
+        {prevChat?.length > 0 && (
+          <>
+            {latestReply ? (
+              // typing effect
+              <div className="replyDiv" key={"typing"}>
+                <div className="markdown">
+                  <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                    {latestReply}
+                  </ReactMarkdown>
+                </div>
+              </div>
+            ) : (
+              // normal render (no typing)
+              <div className="replyDiv" key={"non-typing"}>
+                <div className="markdown">
+                  <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                    {prevChat[prevChat.length - 1]?.content}
+                  </ReactMarkdown>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

@@ -66,46 +66,58 @@ router.delete("/threads/:threadId", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 router.post("/chat", async (req, res) => {
   let { threadId, message } = req.body;
+
   if (!threadId || !message) {
-    return res.status(404).json({ error: "required fields missing" });
-  } else {
-    try {
-      let thread = await Thread.findOne({ threadId });
-      if (!thread) {
-        thread = new Thread({
-          threadId,
-          title: message.substring(0, 20) + "...",
-          messages: [
-            {
-              role: "user",
-              content: message,
-            },
-          ],
-        });
-      }  
-    else{thread.messages.push({
+    return res.status(400).json({ error: "required fields missing" });
+  }
+
+  try {
+    let thread = await Thread.findOne({ threadId });
+
+    if (!thread) {
+      thread = new Thread({
+        threadId,
+        title: message.substring(0, 20) + "...",
+        messages: [
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+      });
+    } else {
+      if (!thread.messages) {
+        thread.messages = [];
+      }
+
+      thread.messages.push({
         role: "user",
         content: message,
-    });
+      });
     }
-    
+
     const assistantReply = await geminiAPIResponse(message);
+
+    if (!assistantReply) {
+      throw new Error("Empty Gemini response");
+    }
+
     thread.messages.push({
       role: "assistant",
       content: assistantReply,
     });
+
     thread.updatedAt = Date.now();
+
     await thread.save();
-    res.json({ reply: assistantReply});
-      
-    } catch (err) {
-      console.error("Error fetching thread:", err);
-      res.status(500).json({ error: err.message });
-    }
+
+    res.json({ reply: assistantReply });
+
+  } catch (err) {
+    console.error("Error fetching thread:", err);
+    res.status(500).json({ error: err.message });
   }
 });
-
 export default router;
