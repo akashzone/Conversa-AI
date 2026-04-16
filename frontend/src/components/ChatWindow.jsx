@@ -7,7 +7,7 @@ import { ScaleLoader } from 'react-spinners'
 
 const ChatWindow = () => {
 
-  let { prompt, setPrompt, reply, setReply, currThreadId, prevChat, setPrevChat } = useContext(MyContext);
+  let { prompt, setPrompt, reply, setReply, currThreadId, prevChat, setPrevChat ,setNewChat} = useContext(MyContext);
   let [loading, setLoading] = useState(false);
   const handleRes = async () => {
 
@@ -41,7 +41,7 @@ const ChatWindow = () => {
     }
   }
   useEffect(() => {
-    if (prompt && reply) {
+        if (prompt && reply) {
       setPrevChat(
         prevChat => (
           [...prevChat, {

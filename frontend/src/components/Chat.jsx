@@ -38,8 +38,8 @@ const Chat = () => {
 
   return (
     <div className="chatBox">
-      {newChat && <h1 className="new">Start a new Chat</h1>}
-
+      { prevChat?.length === 0 && <h1 className="new">Start a new Chat</h1>
+        }
       <div className="chats">
         {/* Previous chats (excluding latest) */}
         {prevChat?.slice(0, -1).map((chat, idx) => (
