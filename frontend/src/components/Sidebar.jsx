@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import {v1 as uuid} from 'uuid';
 
 const Sidebar = () => {
+    const API = import.meta.env.VITE_API_URL;
 
     const { allThreads, setAllThreads, currThreadId, 
         setPrompt,
@@ -19,7 +20,7 @@ const Sidebar = () => {
         } = useContext(MyContext);
     const getThreads = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/threads");
+            const response = await fetch(`${API}/api/threads`);
             const data = await response.json();
             const filteredThreads = data.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             // console.log("Fetched threads:", filteredThreads);
@@ -44,7 +45,7 @@ const Sidebar = () => {
 
     const displayChats = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/threads/${threadId}`);
+            const response = await fetch(`${API}/api/threads/${threadId}`);
             const data = await response.json();
             console.log("Fetched thread data:", data.messages);
             setPrevChat(data.messages);
@@ -60,7 +61,7 @@ const Sidebar = () => {
             return;
         }
         try {
-            const response = await fetch(`http://localhost:5000/api/threads/${threadId}`, {
+            const response = await fetch(`${API}/api/threads/${threadId}`, {
                 method: "DELETE"
             });
             if (response.ok) {
