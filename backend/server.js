@@ -19,9 +19,13 @@ const connectDB = async () => {
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://conversa-ai-taupe.vercel.app/",
-  ]
+    "https://conversa-ai-taupe.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"]
 }));
+
+app.options("*", cors());
 app.use(express.json());
 app.use("/api/", chatRoutes);
 
