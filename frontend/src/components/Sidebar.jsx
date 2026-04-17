@@ -55,7 +55,26 @@ const Sidebar = () => {
         }
     };
 
-
+    const handleDelete = async (threadId) =>{
+        if (!window.confirm("Are you sure you want to delete this thread?")) {
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:5000/api/threads/${threadId}`, {
+                method: "DELETE"
+            });
+            if (response.ok) {
+                setAllThreads(allThreads.filter(thread => thread.threadId !== threadId));
+                if (currThreadId === threadId) {
+                    createNewChat();
+                }
+            } else {
+                console.error("Error deleting thread:", response.statusText);
+            }
+        } catch (err) {
+            console.error("Error deleting thread:", err);
+        }
+    };
     return (
         <section className="sidebar">
             <button className="newChatBtn" onClick={ createNewChat }>
@@ -73,7 +92,7 @@ const Sidebar = () => {
                         displayChats(thread.threadId);
                     }} key={thread.threadId}>
                         {thread.title}
-                        <i className="fa-solid fa-ellipsis editIcon"></i>
+                        <i className="fa-solid fa-trash deleteIcon" onClick={() => {handleDelete(thread.threadId)}}></i>
                     </li>
                 )}
 
