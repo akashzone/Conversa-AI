@@ -35,6 +35,30 @@
     background-color: rgb(65, 116, 227);
 }
 
+.dropDown{
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background-color: #27292c;
+    width: 170px;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 10px 10px;
+}
+
+.dropDownItem{
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropDownItem:hover{
+    background-color: rgba(78, 78, 78, 0.7);
+    color: white;
+}
+
 .inputArea{
     display: flex;
     flex-direction: column;

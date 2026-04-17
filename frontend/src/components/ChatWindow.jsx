@@ -16,6 +16,7 @@ const ChatWindow = () => {
   } = useContext(MyContext);
 
   const [loading, setLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleRes = async () => {
     if (!prompt.trim()) return;
@@ -59,6 +60,10 @@ const ChatWindow = () => {
     setLoading(false);
   };
 
+  const handleUserProfile = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="mainChatWindow">
       <div className="navbar">
@@ -66,10 +71,19 @@ const ChatWindow = () => {
           Conversa AI <i className="fa-solid fa-angle-down"></i>
         </span>
         <div className="userProfile">
-          <i className="fa-solid fa-user userIcon"></i>
+          <i className="fa-solid fa-user userIcon" onMouseOver={handleUserProfile}></i>
         </div>
       </div>
-
+      {
+        isOpen && (
+          <div className="dropDown">
+        <div className="dropDownItem"><i class="fa-solid fa-star-of-david"></i>Upgrade Plan</div>
+        <div className="dropDownItem"><i class="fa-solid fa-star-of-david"></i>Settings</div>
+        <div className="dropDownItem"><i class="fa-regular fa-life-ring"></i>Help</div>
+        <div className="dropDownItem"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</div>
+      </div>
+        )
+      }
       <Chat />
 
       <div className="inputArea">
