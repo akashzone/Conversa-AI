@@ -16,7 +16,9 @@ const connectDB = async () => {
     }
 }
 
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 app.use("/api/", chatRoutes);
 
@@ -25,6 +27,10 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
-  await connectDB();
+  try {
+    await connectDB();
+    console.log(`Server is running on port ${PORT}`);
+  } catch (err) {
+    console.error("Failed to start server:", err);
+  }
 });
