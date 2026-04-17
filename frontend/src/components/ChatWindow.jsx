@@ -16,7 +16,7 @@ const ChatWindow = () => {
   } = useContext(MyContext);
 
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleRes = async () => {
     if (!prompt.trim()) return;
@@ -71,7 +71,7 @@ const ChatWindow = () => {
           Conversa AI <i className="fa-solid fa-angle-down"></i>
         </span>
         <div className="userProfile">
-          <i className="fa-solid fa-user userIcon" onMouseOver={handleUserProfile}></i>
+          <i className="fa-solid fa-user userIcon" onClick={handleUserProfile}></i>
         </div>
       </div>
       {

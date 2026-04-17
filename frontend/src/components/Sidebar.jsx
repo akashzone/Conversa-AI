@@ -90,7 +90,7 @@ const Sidebar = () => {
                 {allThreads.map((thread) =>
                     <li onClick={() => {
                         displayChats(thread.threadId);
-                    }} key={thread.threadId}>
+                    }} key={thread.threadId} className={ currThreadId === thread.threadId ? "highlighted" : ""}>
                         {thread.title}
                         <i className="fa-solid fa-trash deleteIcon" onClick={() => {handleDelete(thread.threadId)}}></i>
                     </li>

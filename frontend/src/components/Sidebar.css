@@ -95,7 +95,7 @@
 }
 
 .historyList li:hover{
-    background-color: rgba(78, 78, 78, 0.7);
+    background-color: rgba(41, 40, 40, 0.7);
     color: white;
 }
 
@@ -115,4 +115,9 @@
 
 .historyList li .fa-trash:hover{
     color: red;
+}
+
+.highlighted{
+    background-color: rgba(41, 40, 40, 0.7);
+    color: white;
 }
