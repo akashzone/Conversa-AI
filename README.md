@@ -95,16 +95,3 @@ Google Gemini API
 MERN Stack ecosystem
 
 ---
-
-# 🔥 What improved (important)
-
-- Proper **section hierarchy**
-- Clean **headings + spacing**
-- Bullet formatting (easy to scan)
-- Professional tone (no paragraphs dump)
-- Recruiter-friendly structure
-
----
-
-## 📷 Preview
-![alt text](image.png)
