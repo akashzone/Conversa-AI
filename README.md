@@ -1,42 +1,110 @@
-Conversa AI
+# 🚀 Conversa AI
 
-Conversa AI is a full-stack chat application where you can interact with an AI assistant in a clean, responsive interface. It’s built using the MERN stack and integrates the Gemini API to generate responses.
+A full-stack AI-powered chat application built using the MERN stack. It allows users to interact with an AI assistant, manage conversations, and experience a modern chat interface with real-time feedback.
 
-The goal of this project was to build something close to a real-world chat product — with chat history, multiple conversations, and a smooth user experience.
+---
 
-Live Demo
-Frontend: https://conversa-ai-taupe.vercel.app/
-Backend: https://conversa-ai-rnmc.onrender.com
-What you can do with it
-Chat with an AI assistant in real time
-Create and switch between multiple chat threads
-Delete chats you no longer need
-See responses with a typing effect (feels more natural)
-View previous messages (stored in database)
-Use markdown in responses (code blocks, formatting, etc.)
-Use the app on mobile or desktop without layout issues
-Tech Stack
+## 🌐 Live Demo
 
-Frontend
+- **Frontend:** https://conversa-ai-taupe.vercel.app/  
+- **Backend:** https://conversa-ai-rnmc.onrender.com  
 
-React
-Context API (for state management)
-Plain CSS
+---
 
-Backend
+## 📌 Features
 
-Node.js
-Express
+- 💬 Real-time AI chat interface  
+- ✨ Typing animation for responses  
+- 🧵 Multiple chat threads (create, switch, delete)  
+- 📂 Sidebar with active chat highlighting  
+- 🧠 Global state management using Context API  
+- 📝 Markdown support (code blocks, formatting)  
+- 📱 Responsive UI (mobile + desktop)  
+- 🗄️ Persistent chat history with MongoDB  
 
-Database
+---
 
-MongoDB
+## 🛠️ Tech Stack
 
-Other integrations
+### Frontend
+- React.js  
+- Context API  
+- CSS  
 
-Gemini API
-REST APIs
-How to run locally
-1. Clone the repo
+### Backend
+- Node.js  
+- Express.js  
+
+### Database
+- MongoDB  
+
+### Integrations
+- Gemini API  
+- REST APIs  
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/akashzone/Conversa-AI.git
 cd Conversa-AI
+2. Setup Backend
+cd backend
+npm install
+
+Create .env file:
+
+MONGO_URI=your_mongodb_uri
+GEMINI_API_KEY=your_api_key
+
+Run backend:
+
+npm start
+3. Setup Frontend
+cd ../frontend
+npm install
+
+Create .env file:
+
+VITE_API_URL=https://conversa-ai-rnmc.onrender.com
+
+Run frontend:
+
+npm run dev
+🚀 Deployment
+Frontend deployed on Vercel
+Backend deployed on Render
+⚠️ Notes
+Backend may take a few seconds to respond initially (Render free tier sleep)
+Ensure environment variables are correctly configured
+📌 Future Improvements
+User authentication
+Chat export feature
+UI/UX enhancements
+Performance optimizations
+👨‍💻 Author
+
+Akash Nadar
+
+LinkedIn: https://www.linkedin.com/in/akashnadar-dev
+GitHub: https://github.com/akashzone
+⭐ Acknowledgements
+Google Gemini API
+MERN Stack ecosystem
+
+---
+
+# 🔥 What improved (important)
+
+- Proper **section hierarchy**
+- Clean **headings + spacing**
+- Bullet formatting (easy to scan)
+- Professional tone (no paragraphs dump)
+- Recruiter-friendly structure
+
+---
+
+## 📷 Preview
+![alt text](image.png)
